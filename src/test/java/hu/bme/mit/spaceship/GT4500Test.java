@@ -40,12 +40,13 @@ public class GT4500Test {
 
     // Act
 
-
+    when(t1.fire(1)).thenReturn(true);
+    when(t2.fire(1)).thenReturn(true);
 
     boolean result = ship.fireTorpedo(FiringMode.ALL);
 
     // Assert
-    verify(t1, times(2)).fire(1);
+    verify(t1, times(1)).fire(1);
     verify(t2, times(1)).fire(1);
     assertEquals(true, result);
   }
