@@ -16,7 +16,7 @@ public class GT4500Test {
     this.ship = new GT4500();
 
     this.ship.setprimaryTorpedo(t1);
-    this.ship.setprimaryTorpedo(t2);
+    this.ship.setsecondaryTorpedo(t2);
   }
 
   @Test
@@ -25,12 +25,12 @@ public class GT4500Test {
 
     // Act
     when(t1.fire(1)).thenReturn(true);
-    when(t2.fire(1)).thenReturn(true);
+    //when(t2.fire(1)).thenReturn(true);
     boolean result = ship.fireTorpedo(FiringMode.SINGLE);
 
     // Assert
     //verify(t1, times(1)).fire(1);
-    verify(t2, times(1)).fire(1);
+    verify(t1, times(1)).fire(1);
     assertEquals(true, result);
   }
 
@@ -45,8 +45,8 @@ public class GT4500Test {
     boolean result = ship.fireTorpedo(FiringMode.ALL);
 
     // Assert
-    verify(t1, times(1)).fire(1);
-    verify(t2, times(2)).fire(1);
+    verify(t1, times(2)).fire(1);
+    verify(t2, times(1)).fire(1);
     assertEquals(true, result);
   }
 
