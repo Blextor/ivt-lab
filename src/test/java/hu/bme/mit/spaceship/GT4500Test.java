@@ -42,6 +42,8 @@ public class GT4500Test {
 
     when(t1.fire(1)).thenReturn(true);
     when(t2.fire(1)).thenReturn(true);
+    when(t1.isEmpty()).thenReturn((false));
+    when(t2.isEmpty()).thenReturn((false));
 
     boolean result = ship.fireTorpedo(FiringMode.ALL);
 
