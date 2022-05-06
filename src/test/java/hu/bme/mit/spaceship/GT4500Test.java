@@ -29,6 +29,8 @@ public class GT4500Test {
     boolean result = ship.fireTorpedo(FiringMode.SINGLE);
 
     // Assert
+    verify(t1, times(1)).fire(1);
+    verify(t2, times(1)).fire(1);
     assertEquals(true, result);
   }
 
@@ -37,8 +39,10 @@ public class GT4500Test {
     // Arrange
 
     // Act
-    when(t1.fire(1)).thenReturn(true);
-    when(t2.fire(1)).thenReturn(true);
+    verify(t1, times(1)).fire(1);
+    verify(t2, times(1)).fire(1);
+
+
     boolean result = ship.fireTorpedo(FiringMode.ALL);
 
     // Assert
