@@ -29,7 +29,7 @@ public class GT4500Test {
     boolean result = ship.fireTorpedo(FiringMode.SINGLE);
 
     // Assert
-    verify(t1, times(1)).fire(1);
+    //verify(t1, times(1)).fire(1);
     verify(t2, times(1)).fire(1);
     assertEquals(true, result);
   }
@@ -39,13 +39,14 @@ public class GT4500Test {
     // Arrange
 
     // Act
-    verify(t1, times(1)).fire(1);
-    verify(t2, times(1)).fire(1);
+
 
 
     boolean result = ship.fireTorpedo(FiringMode.ALL);
 
     // Assert
+    verify(t1, times(1)).fire(1);
+    verify(t2, times(2)).fire(1);
     assertEquals(true, result);
   }
 
